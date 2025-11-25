@@ -1,0 +1,14 @@
+# Core Python dependencies
+numpy
+pandas
+matplotlib
+pytest
+
+# Task 1 (Smart Courier Routing)
+geopy
+
+# Task 2 (Conway's Game of Life)
+# (no extra libraries beyond numpy)
+
+# Optional (only if used)
+python-dotenv
