@@ -1,67 +1,96 @@
-# Problem-Solving-with-Scripting-Final
-Python scripting assignment containing Task 1 (Smart Courier Routing) and Task 2 (Conway’s Game of Life). Includes modular Python packages, documentation, tests, and instructions for running the project.
-
-
 Problem Solving with Scripting — Final Project
 
 OsloMet — Master in Data Science
 
 This repository contains the final submission for the course Problem Solving with Scripting.
-The solution is divided into two independent components:
+The project is divided into two independent Python packages:
 
-Task 1 — Smart Courier Routing
-A modular Python package that loads delivery data, validates rows, computes distances, and produces an optimized delivery route using Greedy or Pareto weighting.
+Task 1: Smart Courier Routing
+A modular routing system that loads delivery data, validates rows, computes distances, and produces an optimised route using Greedy or Pareto-weighted selection.
 
-Task 2 — Conway’s Game of Life
-A simulation engine implementing multiple Life-like cellular automata rules, including a custom ChaosLife rule.
+Task 2: Conway’s Game of Life
+A simulation engine implementing classical Life rules (Conway, HighLife, SuperLife) and a custom ChaosLife rule using decorators for metaprogramming.
 
-📁 Repository Structure
+
+## 📁 Repository Structure
+
+```text
 Problem-Solving-with-Scripting-Final/
 │
 ├── Smart_Courier_Routing/
 │   ├── cli/
+│   │   └── menu.py
 │   ├── core/
+│   │   ├── reader.py
+│   │   ├── validator.py
+│   │   ├── haversine.py
+│   │   ├── transport.py
+│   │   ├── optimizer.py
+│   │   └── metrics_writer.py
 │   ├── utils/
+│   │   ├── decorators.py
+│   │   ├── logger.py
+│   │   └── plotter.py
 │   ├── data/
-│   ├── output/
+│   │   └── sample.csv
+│   ├── output/               # Auto-generated during execution
 │   ├── tests/
-│   └── main.ipynb   (optional)
+│   │   ├── test_basic.py
+│   │   └── conftest.py
+│   └── main.ipynb            #  Jupyter demo
 │
 ├── ConwayGameOfLife/
 │   ├── gameoflife/
-│   ├── patterns/
-│   ├── outputs/
-│   ├── tests/
-│   ├── main.py
-│   └── pattern.txt
+│   │   ├── gol.py
+│   │   ├── patterns.py
+│   │   ├── rules.py
+│   │   ├── rulesmanager.py
+│   │   ├── test.py
+│   │   └── save.py
+│   ├── outputs/              # Auto-generated grid states
+│   │ 
+│   │   
+│   ├── pattern.txt
+│   └── main.py
 │
 ├── requirements.txt
 ├── README.md
 └── .gitignore
 
-🔧 Installation Instructions
 
-You need Python 3.10+.
 
-1 — Clone the repository
+# 🔧 **Installation Instructions**
+
+You need **Python 3.10 or newer**.
+
+---
+
+## **1 — Clone the repository**
+
+```bash
 git clone https://github.com/vpreethi05/Problem-Solving-with-Scripting-Final
 cd Problem-Solving-with-Scripting-Final
 
-2 — Create a Python virtual environment
-Windows PowerShell:
+
+# 2 — **Create a virtual environment**
+
+**Windows (PowerShell):**
+
 python -m venv venv
 venv\Scripts\activate
 
-Mac/Linux:
+
+**Mac/Linux:**
+
 python3 -m venv venv
 source venv/bin/activate
 
-3 — Install required packages
+3 — Install project dependencies
 pip install -r requirements.txt
 
 ▶️ How to Run Task 1 (Smart Courier Routing)
 
-Navigate to the folder:
+Navigate to the Task 1 directory:
 
 cd Smart_Courier_Routing
 python -m cli.menu
@@ -69,15 +98,15 @@ python -m cli.menu
 
 The CLI will ask for:
 
-CSV file path
+Path to CSV file
 
-Depot (latitude, longitude)
+Depot location (latitude, longitude)
 
-Transport mode
+Transport mode (car, bicycle, walking)
 
-Objective function (fastest / lowest_cost / lowest_co2 / pareto)
+Objective (fastest / lowest_cost / lowest_co2 / pareto)
 
-Outputs saved to Smart_Courier_Routing/output/:
+Task 1 Outputs (saved in Smart_Courier_Routing/output/)
 
 route.csv
 
@@ -91,27 +120,27 @@ run.log
 
 ▶️ How to Run Task 2 (Conway’s Game of Life)
 
-Navigate to:
+Navigate to the Task 2 folder:
 
 cd ConwayGameOfLife
 python main.py
 
 
-You will be asked for:
+The program will prompt for:
 
-Grid size
+Grid dimensions
 
-Rule set
+Rule set (conway / highlife / superlife / chaoslife)
 
 Number of generations
 
-Outputs saved to:
+Task 2 Outputs (saved in ConwayGameOfLife/outputs/)
 
-ConwayGameOfLife/outputs/
+Each generation’s grid state is saved as a text file.
 
 🧪 Running Tests
 
-To run all tests:
+To run all tests in the repository:
 
 pytest
 
@@ -126,11 +155,17 @@ pytest
 
 📦 Dependencies
 
-Dependencies listed in:
+All dependencies are listed in:
 
 requirements.txt
 
+
+Install using:
+
+pip install -r requirements.txt
+
 🤖 AI Usage Disclosure
 
-AI assistance (ChatGPT, OpenAI) was used only to improve wording, explanations, and formatting.
-All algorithms, implementation, and code development were performed by the author.
+AI assistance (ChatGPT / OpenAI) was used only to refine academic wording, improve explanations, and help with LaTeX and documentation formatting.
+
+All algorithms, logic, implementation, and testing were developed by the author.
